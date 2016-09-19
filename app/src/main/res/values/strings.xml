@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Scorecard</string>
+    <string name="clear_strokes">Clear strokes</string>
 </resources>
