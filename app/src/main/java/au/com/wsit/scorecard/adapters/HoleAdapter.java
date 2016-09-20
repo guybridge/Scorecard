@@ -75,10 +75,6 @@ public class HoleAdapter extends RecyclerView.Adapter<HoleAdapter.HoleViewHolder
             mShotCount.setText(mHole.getShotCount() + "");
 
 
-            Log.i(TAG, "BindViewHolder called for item: " + item.getHoleNumber());
-
-
-
             mDecrement.setOnClickListener(new View.OnClickListener()
             {
                 @Override
