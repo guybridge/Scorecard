@@ -20,6 +20,7 @@ public class Hole
     {
         // Store in the member variable
         mHoleNumber = holeNumber;
+        mContext = context;
 
         // Setup shared prefs
         mSharedPreferences = mContext.getSharedPreferences(ScorecardConstants.SHARED_PREFERENCES, Context.MODE_PRIVATE);
@@ -35,7 +36,7 @@ public class Hole
     {
         // Put a new int into the shotcount key
         // Increments the mShotcount by 1
-        mEditor.putInt(ScorecardConstants.KEY_SHOT_COUNT + mHoleNumber, mShotCount++);
+        mEditor.putInt(ScorecardConstants.KEY_SHOT_COUNT + mHoleNumber, mShotCount+= 1);
         mEditor.apply();
     }
 
@@ -43,8 +44,16 @@ public class Hole
     {
         // Put a new int into the shotcount key
         // Increments the mShotcount by 1
-        mEditor.putInt(ScorecardConstants.KEY_SHOT_COUNT + mHoleNumber, mShotCount--);
-        mEditor.apply();
+        if(mShotCount == 0)
+        {
+            // Don't do anything because we don't want to allow negatives
+        }
+        else
+        {
+            mEditor.putInt(ScorecardConstants.KEY_SHOT_COUNT + mHoleNumber, mShotCount-=1);
+            mEditor.apply();
+        }
+
     }
 
     // returns the shot count
